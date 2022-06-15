@@ -1,0 +1,35 @@
+dateModified: 1655300482
+email:
+  fromEmail: adam.tsai@fostermade.co
+  fromName: 'Algolia Demo'
+  transportType: craft\mail\transportadapters\Sendmail
+meta:
+  __names__:
+    0b240606-271b-4bb9-a0b3-9984c18392d9: Years # Years
+    3e28446e-a642-4776-b6ad-0ecb491af1d6: 'Job Title' # Job Title
+    49c51939-fc7a-4b83-bd8a-b04503eecbb5: 'First Name' # First Name
+    68b811b8-8da3-4bb8-b1e1-f0cb5b5f748a: Employees # Employees
+    85e2aa75-a69a-4d15-91ee-41b1106555ef: 'Algolia Demo' # Algolia Demo
+    86a6db2f-5c5d-4541-99ea-57af9fa6fc50: 'Last Name' # Last Name
+    195ed359-feca-4323-8594-2e1e731a283e: Employee # Employee
+    760e4742-65f2-4624-8136-b4c9f0d3e5e4: Common # Common
+    cca5852c-22c9-4ed8-ba2c-75f76012863c: 'Algolia Demo' # Algolia Demo
+    d76278f4-8d86-4f8d-9b30-6dcb34456149: Employees # Employees
+    e1183d58-0616-46da-a2be-bd0fb13584f1: Department # Department
+plugins:
+  scout:
+    edition: standard
+    enabled: true
+    schemaVersion: 0.1.0
+system:
+  edition: solo
+  live: true
+  name: 'Algolia Demo'
+  schemaVersion: 3.7.33
+  timeZone: America/Los_Angeles
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

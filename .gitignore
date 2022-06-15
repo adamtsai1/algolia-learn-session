@@ -1,0 +1,7 @@
+/.apache
+/.env
+/.idea
+/.mysql
+/node_modules
+/vendor
+.DS_Store

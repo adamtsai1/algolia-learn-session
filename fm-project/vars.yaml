@@ -1,0 +1,8 @@
+database_name: algolia_demo
+database_server: mysql
+database_version: 5.7
+node_version: 14
+php_version: 8.0
+project_name: fm_algolia-demo
+public_dir: public
+subdomain: algolia-demo

@@ -1,0 +1,84 @@
+version: "3"
+
+services:
+  web:
+    image: webdevops/php-apache-dev:8.0
+    expose:
+      - 80
+    working_dir: /app
+    environment:
+      WEB_DOCUMENT_ROOT: /app/web
+      VIRTUAL_HOST: algolia-demo.fm.test
+      HTTPS_METHOD: redirect
+      SSH_AUTH_SOCK: /run/host-services/ssh-auth.sock
+      XDEBUG_MODE: ${XDEBUG_MODE}
+      # Uncomment if you need to use composer v1
+      # COMPOSER_VERSION: 1
+    volumes:
+      - app:/app:rw,delegated
+      - fm_composer_cache:/root/.composer
+      - /run/host-services/ssh-auth.sock:/run/host-services/ssh-auth.sock
+      - .apache/vhost.common.d:/opt/docker/etc/httpd/vhost.common.d
+    profiles:
+      - web
+    networks:
+      - fm
+      - default
+
+  database:
+    image: 'mysql:5.7'
+    profiles:
+      - web
+    networks:
+      - default
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=algolia_demo
+    ports:
+      - 50894:3306
+    volumes:
+      - database:/var/lib/mysql
+      - .mysql/.my.cnf:/root/.my.cnf
+      - .mysql/my.cnf:/etc/my.cnf
+
+  node:
+    image: node:14
+    expose:
+      - 443
+    working_dir: /app
+    environment:
+      VIRTUAL_HOST: algolia-demo.sync.fm.test
+    volumes:
+      - app:/app:rw,delegated
+    command: npm run watch
+    links:
+      - web:algolia-demo.fm.test
+    networks:
+      - fm
+    profiles:
+      - node
+
+  # This is an example of a project-specific service. It will
+  # be isolated on the default network for this project and
+  # will not be accessible by other services on the external
+  # network. Make sure your web service is on both networks.
+  #
+  # redis:
+  #   image: redis:5-alpine
+  #   networks:
+  #     - default
+
+networks:
+  fm:
+    external: true
+
+volumes:
+  fm_composer_cache:
+    external: true
+  app:
+    driver: local
+    driver_opts:
+      type: nfs
+      device: ":${PWD}"
+      o: addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3,actimeo=2
+  database: ~

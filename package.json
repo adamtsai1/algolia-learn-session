@@ -1,0 +1,12 @@
+{
+  "name": "algolia-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "scout-refresh": "./craft scout/index/refresh",
+    "scout-settings": "./craft scout/settings/update"
+  },
+  "author": "",
+  "license": "ISC"
+}

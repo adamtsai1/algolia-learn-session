@@ -1,0 +1,19 @@
+columnSuffix: axxznrsg
+contentColumnType: text
+fieldGroup: d76278f4-8d86-4f8d-9b30-6dcb34456149 # Employees
+handle: lastName
+instructions: ''
+name: 'Last Name'
+searchable: false
+settings:
+  byteLimit: null
+  charLimit: null
+  code: ''
+  columnType: null
+  initialRows: '4'
+  multiline: ''
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

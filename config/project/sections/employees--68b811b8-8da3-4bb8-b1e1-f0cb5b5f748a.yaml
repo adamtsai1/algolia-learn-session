@@ -1,0 +1,12 @@
+defaultPlacement: end
+enableVersioning: true
+handle: employees
+name: Employees
+propagationMethod: all
+siteSettings:
+  85e2aa75-a69a-4d15-91ee-41b1106555ef: # Algolia Demo
+    enabledByDefault: true
+    hasUrls: true
+    template: employees/_entry
+    uriFormat: 'employees/{slug}'
+type: channel

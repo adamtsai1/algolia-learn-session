@@ -1,0 +1,20 @@
+columnSuffix: flgoocbr
+contentColumnType: integer(10)
+fieldGroup: d76278f4-8d86-4f8d-9b30-6dcb34456149 # Employees
+handle: years
+instructions: ''
+name: Years
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: null
+  min: 0
+  prefix: null
+  previewCurrency: ''
+  previewFormat: decimal
+  size: null
+  suffix: null
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number
