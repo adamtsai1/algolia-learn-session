@@ -6534,12 +6534,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-core/dist/es/widgets/InstantSearch.js");
-/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/RefinementList.js");
-/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/SearchBox.js");
-/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/SortBy.js");
-/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Stats.js");
-/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Hits.js");
-/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Pagination.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-core/dist/es/widgets/Configure.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/RefinementList.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/SearchBox.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/SortBy.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Stats.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Hits.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Pagination.js");
 /* harmony import */ var algoliasearch_lite__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! algoliasearch/lite */ "./node_modules/algoliasearch/dist/algoliasearch-lite.umd.js");
 /* harmony import */ var algoliasearch_lite__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(algoliasearch_lite__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _EmployeeCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EmployeeCard */ "./src/js/EmployeeCard.js");
@@ -6582,7 +6583,9 @@ var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_4__["default"], {
     indexName: "".concat("dev", "_employees"),
     searchClient: algoliaClient
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    hitsPerPage: 6
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     style: {
       display: 'grid',
       gap: '30px',
@@ -6596,9 +6599,9 @@ var App = function App() {
     style: {
       marginBottom: '1rem'
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Department"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Department"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_6__["default"], {
     attribute: "department"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Job Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Job Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_6__["default"], {
     attribute: "jobTitle"
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     style: {
@@ -6608,16 +6611,16 @@ var App = function App() {
     style: {
       marginBottom: '1rem'
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_7__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     style: {
       marginBottom: '1rem'
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_8__["default"], {
     defaultRefinement: sortBy.value,
     items: sortingOptions
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_8__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_SearchMetadata__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_9__["default"], {
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_9__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_SearchMetadata__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_10__["default"], {
     hitComponent: _EmployeeCard__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_10__["default"], null)))));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_11__["default"], null)))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
@@ -38061,6 +38064,101 @@ module.exports = function isEqual(a, b) {
 
 /***/ }),
 
+/***/ "./node_modules/react-instantsearch-core/dist/es/connectors/connectConfigure.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-core/dist/es/connectors/connectConfigure.js ***!
+  \**************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/objectWithoutProperties */ "./node_modules/@babel/runtime/helpers/esm/objectWithoutProperties.js");
+/* harmony import */ var _core_utils_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../core/utils.js */ "./node_modules/react-instantsearch-core/dist/es/core/utils.js");
+/* harmony import */ var _core_createConnector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/createConnector.js */ "./node_modules/react-instantsearch-core/dist/es/core/createConnector.js");
+/* harmony import */ var _core_indexUtils_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../core/indexUtils.js */ "./node_modules/react-instantsearch-core/dist/es/core/indexUtils.js");
+
+
+var _excluded = ["children", "contextValue", "indexContextValue"],
+    _excluded2 = ["children", "contextValue", "indexContextValue"];
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+
+
+
+
+function getId() {
+  return 'configure';
+}
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,_core_createConnector_js__WEBPACK_IMPORTED_MODULE_2__["default"])({
+  displayName: 'AlgoliaConfigure',
+  $$type: 'ais.configure',
+  getProvidedProps: function getProvidedProps() {
+    return {};
+  },
+  getSearchParameters: function getSearchParameters(searchParameters, props) {
+    var children = props.children,
+        contextValue = props.contextValue,
+        indexContextValue = props.indexContextValue,
+        items = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, _excluded);
+
+    return searchParameters.setQueryParameters(items);
+  },
+  transitionState: function transitionState(props, prevSearchState, nextSearchState) {
+    var id = getId();
+
+    var children = props.children,
+        contextValue = props.contextValue,
+        indexContextValue = props.indexContextValue,
+        items = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_1__["default"])(props, _excluded2);
+
+    var propKeys = Object.keys(props);
+    var nonPresentKeys = this._props ? Object.keys(this._props).filter(function (prop) {
+      return propKeys.indexOf(prop) === -1;
+    }) : [];
+    this._props = props;
+
+    var nextValue = (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, id, _objectSpread(_objectSpread({}, (0,_core_utils_js__WEBPACK_IMPORTED_MODULE_3__.omit)(nextSearchState[id], nonPresentKeys)), items));
+
+    return (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_4__.refineValue)(nextSearchState, nextValue, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    });
+  },
+  cleanUp: function cleanUp(props, searchState) {
+    var id = getId();
+    var indexId = (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_4__.getIndexId)({
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    });
+    var subState = (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_4__.hasMultipleIndices)({
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    }) && searchState.indices ? searchState.indices[indexId] : searchState;
+    var configureKeys = subState && subState[id] ? Object.keys(subState[id]) : [];
+    var configureState = configureKeys.reduce(function (acc, item) {
+      if (!props[item]) {
+        acc[item] = subState[id][item];
+      }
+
+      return acc;
+    }, {});
+
+    var nextValue = (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, id, configureState);
+
+    return (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_4__.refineValue)(searchState, nextValue, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    });
+  }
+}));
+
+/***/ }),
+
 /***/ "./node_modules/react-instantsearch-core/dist/es/connectors/connectHighlight.js":
 /*!**************************************************************************************!*\
   !*** ./node_modules/react-instantsearch-core/dist/es/connectors/connectHighlight.js ***!
@@ -40783,6 +40881,59 @@ function unescapeFacetValue(value) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ('6.28.0');
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-core/dist/es/widgets/Configure.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-core/dist/es/widgets/Configure.js ***!
+  \****************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _connectors_connectConfigure_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../connectors/connectConfigure.js */ "./node_modules/react-instantsearch-core/dist/es/connectors/connectConfigure.js");
+
+/**
+ * Configure is a widget that lets you provide raw search parameters
+ * to the Algolia API.
+ *
+ * Any of the props added to this widget will be forwarded to Algolia. For more information
+ * on the different parameters that can be set, have a look at the
+ * [reference](https://www.algolia.com/doc/api-client/javascript/search#search-parameters).
+ *
+ * This widget can be used either with react-dom and react-native. It will not render anything
+ * on screen, only configure some parameters.
+ *
+ * Read more in the [Search parameters](guide/Search_parameters.html) guide.
+ * @name Configure
+ * @kind widget
+ * @example
+ * import React from 'react';
+ * import algoliasearch from 'algoliasearch/lite';
+ * import { InstantSearch, Configure, Hits } from 'react-instantsearch-dom';
+ *
+ * const searchClient = algoliasearch(
+ *   'latency',
+ *   '6be0576ff61c053d5f9a3225e2a90f76'
+ * );
+ *
+ * const App = () => (
+ *   <InstantSearch
+ *     searchClient={searchClient}
+ *     indexName="instant_search"
+ *   >
+ *     <Configure hitsPerPage={5} />
+ *     <Hits />
+ *   </InstantSearch>
+ * );
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,_connectors_connectConfigure_js__WEBPACK_IMPORTED_MODULE_0__["default"])(function Configure() {
+  return null;
+}, {
+  $$widgetType: 'ais.configure'
+}));
 
 /***/ }),
 

@@ -1,5 +1,14 @@
 import React, { useState } from 'react';
-import { Hits, InstantSearch, Pagination, RefinementList, SearchBox, SortBy, Stats } from 'react-instantsearch-dom';
+import {
+    Configure,
+    Hits,
+    InstantSearch,
+    Pagination,
+    RefinementList,
+    SearchBox,
+    SortBy,
+    Stats,
+} from 'react-instantsearch-dom';
 import algoliasearch from 'algoliasearch/lite';
 import EmployeeCard from './EmployeeCard';
 import SearchMetadata from './SearchMetadata';
@@ -24,7 +33,10 @@ const App = () => {
     return (
         <div>
             <InstantSearch indexName={`${process.env.ENVIRONMENT}_employees`} searchClient={algoliaClient}>
+                <Configure hitsPerPage={6} />
+
                 <div style={{ display: 'grid', gap: '30px', gridTemplateColumns: 'repeat(12, 1fr)' }}>
+                    {/* Filters */}
                     <div style={{ gridColumn: '1 / 3' }}>
                         <div style={{ marginBottom: '1rem' }}>
                             <h4>Department</h4>
