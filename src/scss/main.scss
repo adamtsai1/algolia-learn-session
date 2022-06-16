@@ -1,0 +1,20 @@
+.ais-Pagination {
+    ul {
+        display: flex;
+        list-style-type: none;
+
+        li {
+            &:not(:last-child) {
+                margin-right: 8px;
+            }
+
+            &.ais-Pagination-item--selected {
+                font-weight: 700;
+
+                a {
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

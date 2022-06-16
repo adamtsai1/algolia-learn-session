@@ -1,0 +1,13 @@
+.ais-Pagination ul {
+  display: flex;
+  list-style-type: none;
+}
+.ais-Pagination ul li:not(:last-child) {
+  margin-right: 8px;
+}
+.ais-Pagination ul li.ais-Pagination-item--selected {
+  font-weight: 700;
+}
+.ais-Pagination ul li.ais-Pagination-item--selected a {
+  text-decoration: none;
+}
