@@ -6533,29 +6533,132 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-core/dist/es/widgets/InstantSearch.js");
-/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Stats.js");
-/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Hits.js");
-/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Pagination.js");
-/* harmony import */ var algoliasearch_lite__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! algoliasearch/lite */ "./node_modules/algoliasearch/dist/algoliasearch-lite.umd.js");
-/* harmony import */ var algoliasearch_lite__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(algoliasearch_lite__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-core/dist/es/widgets/InstantSearch.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/RefinementList.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/SearchBox.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/SortBy.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Stats.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Hits.js");
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Pagination.js");
+/* harmony import */ var algoliasearch_lite__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! algoliasearch/lite */ "./node_modules/algoliasearch/dist/algoliasearch-lite.umd.js");
+/* harmony import */ var algoliasearch_lite__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(algoliasearch_lite__WEBPACK_IMPORTED_MODULE_3__);
 /* harmony import */ var _EmployeeCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EmployeeCard */ "./src/js/EmployeeCard.js");
+/* harmony import */ var _SearchMetadata__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SearchMetadata */ "./src/js/SearchMetadata.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
-var algoliaClient = algoliasearch_lite__WEBPACK_IMPORTED_MODULE_2___default()("R8YP8GWD34", "6d5a02f2cc26831401d46e39fee74920");
+
+
+var algoliaClient = algoliasearch_lite__WEBPACK_IMPORTED_MODULE_3___default()("R8YP8GWD34", "6d5a02f2cc26831401d46e39fee74920");
+var sortingOptions = [{
+  value: "".concat("dev", "_employees"),
+  label: 'Best Match'
+}, {
+  value: "".concat("dev", "_employees_sort_by_last_name_asc"),
+  label: 'Last Name (A-Z)'
+}, {
+  value: "".concat("dev", "_employees_sort_by_years_desc"),
+  label: 'Years'
+}];
 
 var App = function App() {
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_3__["default"], {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(sortingOptions[0]),
+      _useState2 = _slicedToArray(_useState, 2),
+      sortBy = _useState2[0],
+      setSortBy = _useState2[1];
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_4__["default"], {
     indexName: "".concat("dev", "_employees"),
     searchClient: algoliaClient
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      display: 'grid',
+      gap: '30px',
+      gridTemplateColumns: 'repeat(12, 1fr)'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      gridColumn: '1 / 3'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      marginBottom: '1rem'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Department"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    attribute: "department"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h4", null, "Job Title"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    attribute: "jobTitle"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      gridColumn: '3 / 12'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      marginBottom: '1rem'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_6__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+    style: {
+      marginBottom: '1rem'
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_7__["default"], {
+    defaultRefinement: sortBy.value,
+    items: sortingOptions
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_8__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_SearchMetadata__WEBPACK_IMPORTED_MODULE_2__["default"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_9__["default"], {
     hitComponent: _EmployeeCard__WEBPACK_IMPORTED_MODULE_1__["default"]
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_6__["default"], null)));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_10__["default"], null)))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./src/js/SearchMetadata.js":
+/*!**********************************!*\
+  !*** ./src/js/SearchMetadata.js ***!
+  \**********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-instantsearch-dom */ "./node_modules/react-instantsearch-core/dist/es/connectors/connectStateResults.js");
+
+
+
+var SearchMetadata = function SearchMetadata(_ref) {
+  var searchResults = _ref.searchResults;
+
+  if (!searchResults) {
+    return null;
+  }
+
+  var hitsPerPage = searchResults.hitsPerPage,
+      nbHits = searchResults.nbHits,
+      page = searchResults.page;
+  var rangeStart = page * hitsPerPage + 1;
+  var rangeEnd = Math.min(rangeStart + hitsPerPage - 1, nbHits);
+
+  if (nbHits === 0) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, "No results found.");
+  }
+
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, rangeStart, "-", rangeEnd, " of ", nbHits, " results");
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,react_instantsearch_dom__WEBPACK_IMPORTED_MODULE_1__["default"])(SearchMetadata));
 
 /***/ }),
 
@@ -37958,6 +38061,100 @@ module.exports = function isEqual(a, b) {
 
 /***/ }),
 
+/***/ "./node_modules/react-instantsearch-core/dist/es/connectors/connectHighlight.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-core/dist/es/connectors/connectHighlight.js ***!
+  \**************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core_createConnector_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/createConnector.js */ "./node_modules/react-instantsearch-core/dist/es/core/createConnector.js");
+/* harmony import */ var _core_highlight_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/highlight.js */ "./node_modules/react-instantsearch-core/dist/es/core/highlight.js");
+
+
+
+var highlight = function highlight(_ref) {
+  var attribute = _ref.attribute,
+      hit = _ref.hit,
+      highlightProperty = _ref.highlightProperty,
+      _ref$preTag = _ref.preTag,
+      preTag = _ref$preTag === void 0 ? _core_highlight_js__WEBPACK_IMPORTED_MODULE_0__.HIGHLIGHT_TAGS.highlightPreTag : _ref$preTag,
+      _ref$postTag = _ref.postTag,
+      postTag = _ref$postTag === void 0 ? _core_highlight_js__WEBPACK_IMPORTED_MODULE_0__.HIGHLIGHT_TAGS.highlightPostTag : _ref$postTag;
+  return (0,_core_highlight_js__WEBPACK_IMPORTED_MODULE_0__.parseAlgoliaHit)({
+    attribute: attribute,
+    highlightProperty: highlightProperty,
+    hit: hit,
+    preTag: preTag,
+    postTag: postTag
+  });
+};
+/**
+ * connectHighlight connector provides the logic to create an highlighter
+ * component that will retrieve, parse and render an highlighted attribute
+ * from an Algolia hit.
+ * @name connectHighlight
+ * @kind connector
+ * @category connector
+ * @providedPropType {function} highlight - function to retrieve and parse an attribute from a hit. It takes a configuration object with 3 attributes: `highlightProperty` which is the property that contains the highlight structure from the records, `attribute` which is the name of the attribute (it can be either a string or an array of strings) to look for and `hit` which is the hit from Algolia. It returns an array of objects `{value: string, isHighlighted: boolean}`. If the element that corresponds to the attribute is an array of strings, it will return a nested array of objects.
+ * @example
+ * import React from 'react';
+ * import algoliasearch from 'algoliasearch/lite';
+ * import { InstantSearch, SearchBox, Hits, connectHighlight } from 'react-instantsearch-dom';
+ *
+ * const searchClient = algoliasearch(
+ *   'latency',
+ *   '6be0576ff61c053d5f9a3225e2a90f76'
+ * );
+ *
+ * const CustomHighlight = connectHighlight(
+ *   ({ highlight, attribute, hit, highlightProperty }) => {
+ *     const highlights = highlight({
+ *       highlightProperty: '_highlightResult',
+ *       attribute,
+ *       hit
+ *     });
+ *
+ *     return highlights.map(part => part.isHighlighted ? (
+ *       <mark>{part.value}</mark>
+ *     ) : (
+ *       <span>{part.value}</span>
+ *     ));
+ *   }
+ * );
+ *
+ * const Hit = ({ hit }) => (
+ *   <p>
+ *     <CustomHighlight attribute="name" hit={hit} />
+ *   </p>
+ * );
+ *
+ * const App = () => (
+ *   <InstantSearch
+ *     searchClient={searchClient}
+ *     indexName="instant_search"
+ *   >
+ *     <SearchBox defaultRefinement="pho" />
+ *     <Hits hitComponent={Hit} />
+ *   </InstantSearch>
+ * );
+ */
+
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,_core_createConnector_js__WEBPACK_IMPORTED_MODULE_1__["default"])({
+  displayName: 'AlgoliaHighlighter',
+  $$type: 'ais.highlighter',
+  propTypes: {},
+  getProvidedProps: function getProvidedProps() {
+    return {
+      highlight: highlight
+    };
+  }
+}));
+
+/***/ }),
+
 /***/ "./node_modules/react-instantsearch-core/dist/es/connectors/connectHits.js":
 /*!*********************************************************************************!*\
   !*** ./node_modules/react-instantsearch-core/dist/es/connectors/connectHits.js ***!
@@ -38157,6 +38354,586 @@ function _refine(props, searchState, nextPage, context) {
   getMetadata: function getMetadata() {
     return {
       id: getId()
+    };
+  }
+}));
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-core/dist/es/connectors/connectRefinementList.js":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-core/dist/es/connectors/connectRefinementList.js ***!
+  \*******************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _core_createConnector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/createConnector.js */ "./node_modules/react-instantsearch-core/dist/es/core/createConnector.js");
+/* harmony import */ var _core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/indexUtils.js */ "./node_modules/react-instantsearch-core/dist/es/core/indexUtils.js");
+/* harmony import */ var _core_utils_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../core/utils.js */ "./node_modules/react-instantsearch-core/dist/es/core/utils.js");
+
+
+
+
+
+var namespace = 'refinementList';
+
+function getId(props) {
+  return props.attribute;
+}
+
+function getCurrentRefinement(props, searchState, context) {
+  var currentRefinement = (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.getCurrentRefinementValue)(props, searchState, context, "".concat(namespace, ".").concat(getId(props)), []);
+
+  if (typeof currentRefinement !== 'string') {
+    return currentRefinement;
+  }
+
+  if (currentRefinement) {
+    return [currentRefinement];
+  }
+
+  return [];
+}
+
+function getValue(value, props, searchState, context) {
+  var currentRefinement = getCurrentRefinement(props, searchState, context);
+  var isAnewValue = currentRefinement.indexOf(value) === -1;
+  var nextRefinement = isAnewValue ? currentRefinement.concat([value]) // cannot use .push(), it mutates
+  : currentRefinement.filter(function (selectedValue) {
+    return selectedValue !== value;
+  }); // cannot use .splice(), it mutates
+
+  return nextRefinement;
+}
+
+function getLimit(_ref) {
+  var showMore = _ref.showMore,
+      limit = _ref.limit,
+      showMoreLimit = _ref.showMoreLimit;
+  return showMore ? showMoreLimit : limit;
+}
+
+function _refine(props, searchState, nextRefinement, context) {
+  var id = getId(props); // Setting the value to an empty string ensures that it is persisted in
+  // the URL as an empty value.
+  // This is necessary in the case where `defaultRefinement` contains one
+  // item and we try to deselect it. `nextSelected` would be an empty array,
+  // which would not be persisted to the URL.
+  // {foo: ['bar']} => "foo[0]=bar"
+  // {foo: []} => ""
+
+  var nextValue = (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, id, nextRefinement.length > 0 ? nextRefinement : '');
+
+  var resetPage = true;
+  return (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.refineValue)(searchState, nextValue, context, resetPage, namespace);
+}
+
+function _cleanUp(props, searchState, context) {
+  return (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.cleanUpValue)(searchState, context, "".concat(namespace, ".").concat(getId(props)));
+}
+/**
+ * connectRefinementList connector provides the logic to build a widget that will
+ * give the user the ability to choose multiple values for a specific facet.
+ * @name connectRefinementList
+ * @kind connector
+ * @requirements The attribute passed to the `attribute` prop must be present in "attributes for faceting"
+ * on the Algolia dashboard or configured as `attributesForFaceting` via a set settings call to the Algolia API.
+ * @propType {string} attribute - the name of the attribute in the record
+ * @propType {boolean} [searchable=false] - allow search inside values
+ * @propType {string} [operator=or] - How to apply the refinements. Possible values: 'or' or 'and'.
+ * @propType {boolean} [showMore=false] - true if the component should display a button that will expand the number of items
+ * @propType {number} [limit=10] - the minimum number of displayed items
+ * @propType {number} [showMoreLimit=20] - the maximun number of displayed items. Only used when showMore is set to `true`
+ * @propType {string[]} defaultRefinement - the values of the items selected by default. The searchState of this widget takes the form of a list of `string`s, which correspond to the values of all selected refinements. However, when there are no refinements selected, the value of the searchState is an empty string.
+ * @propType {function} [transformItems] - Function to modify the items being displayed, e.g. for filtering or sorting them. Takes an items as parameter and expects it back in return.
+ * @providedPropType {function} refine - a function to toggle a refinement
+ * @providedPropType {function} createURL - a function to generate a URL for the corresponding search state
+ * @providedPropType {string[]} currentRefinement - the refinement currently applied
+ * @providedPropType {array.<{count: number, isRefined: boolean, label: string, value: string}>} items - the list of items the RefinementList can display.
+ * @providedPropType {function} searchForItems - a function to toggle a search inside items values
+ * @providedPropType {boolean} isFromSearch - a boolean that says if the `items` props contains facet values from the global search or from the search inside items.
+ * @providedPropType {boolean} canRefine - a boolean that says whether you can refine
+ */
+
+
+var sortBy = ['isRefined', 'count:desc', 'name:asc'];
+/* harmony default export */ __webpack_exports__["default"] = ((0,_core_createConnector_js__WEBPACK_IMPORTED_MODULE_2__["default"])({
+  displayName: 'AlgoliaRefinementList',
+  $$type: 'ais.refinementList',
+  propTypes: {
+    id: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+    attribute: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string.isRequired),
+    operator: prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOf(['and', 'or']),
+    showMore: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+    limit: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+    showMoreLimit: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number),
+    defaultRefinement: prop_types__WEBPACK_IMPORTED_MODULE_3___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_3___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_3___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_3___default().number)])),
+    searchable: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool),
+    transformItems: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func),
+    facetOrdering: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().bool)
+  },
+  defaultProps: {
+    operator: 'or',
+    showMore: false,
+    limit: 10,
+    showMoreLimit: 20,
+    facetOrdering: true
+  },
+  getProvidedProps: function getProvidedProps(props, searchState, searchResults, metadata, searchForFacetValuesResults) {
+    var attribute = props.attribute,
+        searchable = props.searchable,
+        indexContextValue = props.indexContextValue,
+        facetOrdering = props.facetOrdering;
+    var results = (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.getResults)(searchResults, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    });
+    var canRefine = Boolean(results) && Boolean(results.getFacetByName(attribute));
+    var isFromSearch = Boolean(searchForFacetValuesResults && searchForFacetValuesResults[attribute] && searchForFacetValuesResults.query !== ''); // Search For Facet Values is not available with derived helper (used for multi index search)
+
+    if (searchable && indexContextValue) {
+      throw new Error('react-instantsearch: searching in *List is not available when used inside a' + ' multi index context');
+    }
+
+    if (!canRefine) {
+      return {
+        items: [],
+        currentRefinement: getCurrentRefinement(props, searchState, {
+          ais: props.contextValue,
+          multiIndexContext: props.indexContextValue
+        }),
+        canRefine: canRefine,
+        isFromSearch: isFromSearch,
+        searchable: searchable
+      };
+    }
+
+    var items = isFromSearch ? searchForFacetValuesResults[attribute].map(function (v) {
+      return {
+        label: v.value,
+        value: getValue(v.escapedValue, props, searchState, {
+          ais: props.contextValue,
+          multiIndexContext: props.indexContextValue
+        }),
+        _highlightResult: {
+          label: {
+            value: v.highlighted
+          }
+        },
+        count: v.count,
+        isRefined: v.isRefined
+      };
+    }) : results.getFacetValues(attribute, {
+      sortBy: sortBy,
+      facetOrdering: facetOrdering
+    }).map(function (v) {
+      return {
+        label: v.name,
+        value: getValue(v.escapedValue, props, searchState, {
+          ais: props.contextValue,
+          multiIndexContext: props.indexContextValue
+        }),
+        count: v.count,
+        isRefined: v.isRefined
+      };
+    });
+    var transformedItems = props.transformItems ? props.transformItems(items) : items;
+    return {
+      items: transformedItems.slice(0, getLimit(props)),
+      currentRefinement: getCurrentRefinement(props, searchState, {
+        ais: props.contextValue,
+        multiIndexContext: props.indexContextValue
+      }),
+      isFromSearch: isFromSearch,
+      searchable: searchable,
+      canRefine: transformedItems.length > 0
+    };
+  },
+  refine: function refine(props, searchState, nextRefinement) {
+    return _refine(props, searchState, nextRefinement, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    });
+  },
+  searchForFacetValues: function searchForFacetValues(props, searchState, nextRefinement) {
+    return {
+      facetName: props.attribute,
+      query: nextRefinement,
+      maxFacetHits: getLimit(props)
+    };
+  },
+  cleanUp: function cleanUp(props, searchState) {
+    return _cleanUp(props, searchState, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    });
+  },
+  getSearchParameters: function getSearchParameters(searchParameters, props, searchState) {
+    var attribute = props.attribute,
+        operator = props.operator;
+    var addKey = operator === 'and' ? 'addFacet' : 'addDisjunctiveFacet';
+    var addRefinementKey = "".concat(addKey, "Refinement");
+    searchParameters = searchParameters.setQueryParameters({
+      maxValuesPerFacet: Math.max(searchParameters.maxValuesPerFacet || 0, getLimit(props))
+    });
+    searchParameters = searchParameters[addKey](attribute);
+    return getCurrentRefinement(props, searchState, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    }).reduce(function (res, val) {
+      return res[addRefinementKey](attribute, val);
+    }, searchParameters);
+  },
+  getMetadata: function getMetadata(props, searchState) {
+    var id = getId(props);
+    var context = {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    };
+    return {
+      id: id,
+      index: (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.getIndexId)(context),
+      items: getCurrentRefinement(props, searchState, context).length > 0 ? [{
+        attribute: props.attribute,
+        label: "".concat(props.attribute, ": "),
+        currentRefinement: getCurrentRefinement(props, searchState, context),
+        value: function value(nextState) {
+          return _refine(props, nextState, [], context);
+        },
+        items: getCurrentRefinement(props, searchState, context).map(function (item) {
+          return {
+            label: (0,_core_utils_js__WEBPACK_IMPORTED_MODULE_4__.unescapeFacetValue)("".concat(item)),
+            value: function value(nextState) {
+              var nextSelectedItems = getCurrentRefinement(props, nextState, context).filter(function (other) {
+                return other !== item;
+              });
+              return _refine(props, searchState, nextSelectedItems, context);
+            }
+          };
+        })
+      }] : []
+    };
+  }
+}));
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-core/dist/es/connectors/connectSearchBox.js":
+/*!**************************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-core/dist/es/connectors/connectSearchBox.js ***!
+  \**************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _core_createConnector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/createConnector.js */ "./node_modules/react-instantsearch-core/dist/es/core/createConnector.js");
+/* harmony import */ var _core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/indexUtils.js */ "./node_modules/react-instantsearch-core/dist/es/core/indexUtils.js");
+
+
+
+
+
+function getId() {
+  return 'query';
+}
+
+function getCurrentRefinement(props, searchState, context) {
+  var id = getId(props);
+  var currentRefinement = (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.getCurrentRefinementValue)(props, searchState, context, id, '');
+
+  if (currentRefinement) {
+    return currentRefinement;
+  }
+
+  return '';
+}
+
+function _refine(props, searchState, nextRefinement, context) {
+  var id = getId();
+
+  var nextValue = (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, id, nextRefinement);
+
+  var resetPage = true;
+  return (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.refineValue)(searchState, nextValue, context, resetPage);
+}
+
+function _cleanUp(props, searchState, context) {
+  return (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.cleanUpValue)(searchState, context, getId());
+}
+/**
+ * connectSearchBox connector provides the logic to build a widget that will
+ * let the user search for a query
+ * @name connectSearchBox
+ * @kind connector
+ * @propType {string} [defaultRefinement] - Provide a default value for the query
+ * @providedPropType {function} refine - a function to change the current query
+ * @providedPropType {string} currentRefinement - the current query used
+ * @providedPropType {boolean} isSearchStalled - a flag that indicates if InstantSearch has detected that searches are stalled
+ */
+
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,_core_createConnector_js__WEBPACK_IMPORTED_MODULE_2__["default"])({
+  displayName: 'AlgoliaSearchBox',
+  $$type: 'ais.searchBox',
+  propTypes: {
+    defaultRefinement: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string)
+  },
+  getProvidedProps: function getProvidedProps(props, searchState, searchResults) {
+    return {
+      currentRefinement: getCurrentRefinement(props, searchState, {
+        ais: props.contextValue,
+        multiIndexContext: props.indexContextValue
+      }),
+      isSearchStalled: searchResults.isSearchStalled
+    };
+  },
+  refine: function refine(props, searchState, nextRefinement) {
+    return _refine(props, searchState, nextRefinement, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    });
+  },
+  cleanUp: function cleanUp(props, searchState) {
+    return _cleanUp(props, searchState, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    });
+  },
+  getSearchParameters: function getSearchParameters(searchParameters, props, searchState) {
+    return searchParameters.setQuery(getCurrentRefinement(props, searchState, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    }));
+  },
+  getMetadata: function getMetadata(props, searchState) {
+    var id = getId(props);
+    var currentRefinement = getCurrentRefinement(props, searchState, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    });
+    return {
+      id: id,
+      index: (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.getIndexId)({
+        ais: props.contextValue,
+        multiIndexContext: props.indexContextValue
+      }),
+      items: currentRefinement === null ? [] : [{
+        label: "".concat(id, ": ").concat(currentRefinement),
+        value: function value(nextState) {
+          return _refine(props, nextState, '', {
+            ais: props.contextValue,
+            multiIndexContext: props.indexContextValue
+          });
+        },
+        currentRefinement: currentRefinement
+      }]
+    };
+  }
+}));
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-core/dist/es/connectors/connectSortBy.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-core/dist/es/connectors/connectSortBy.js ***!
+  \***********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _core_createConnector_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/createConnector.js */ "./node_modules/react-instantsearch-core/dist/es/core/createConnector.js");
+/* harmony import */ var _core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/indexUtils.js */ "./node_modules/react-instantsearch-core/dist/es/core/indexUtils.js");
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+
+
+
+
+function getId() {
+  return 'sortBy';
+}
+
+function getCurrentRefinement(props, searchState, context) {
+  var id = getId(props);
+  var currentRefinement = (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.getCurrentRefinementValue)(props, searchState, context, id, null);
+
+  if (currentRefinement) {
+    return currentRefinement;
+  }
+
+  return null;
+}
+/**
+ * The connectSortBy connector provides the logic to build a widget that will
+ *  display a list of indices. This allows a user to change how the hits are being sorted.
+ * @name connectSortBy
+ * @requirements Algolia handles sorting by creating replica indices. [Read more about sorting](https://www.algolia.com/doc/guides/relevance/sorting/) on
+ * the Algolia website.
+ * @kind connector
+ * @propType {string} defaultRefinement - The default selected index.
+ * @propType {{value: string, label: string}[]} items - The list of indexes to search in.
+ * @propType {function} [transformItems] - Function to modify the items being displayed, e.g. for filtering or sorting them. Takes an items as parameter and expects it back in return.
+ * @providedPropType {function} refine - a function to remove a single filter
+ * @providedPropType {function} createURL - a function to generate a URL for the corresponding search state
+ * @providedPropType {string[]} currentRefinement - the refinement currently applied
+ * @providedPropType {array.<{isRefined: boolean, label?: string, value: string}>} items - the list of items the HitsPerPage can display.  If no label provided, the value will be displayed.
+ */
+
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,_core_createConnector_js__WEBPACK_IMPORTED_MODULE_2__["default"])({
+  displayName: 'AlgoliaSortBy',
+  $$type: 'ais.sortBy',
+  propTypes: {
+    defaultRefinement: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+    items: prop_types__WEBPACK_IMPORTED_MODULE_3___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_3___default().shape({
+      label: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string),
+      value: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().string.isRequired)
+    })).isRequired,
+    transformItems: (prop_types__WEBPACK_IMPORTED_MODULE_3___default().func)
+  },
+  getProvidedProps: function getProvidedProps(props, searchState) {
+    var currentRefinement = getCurrentRefinement(props, searchState, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    });
+    var items = props.items.map(function (item) {
+      return item.value === currentRefinement ? _objectSpread(_objectSpread({}, item), {}, {
+        isRefined: true
+      }) : _objectSpread(_objectSpread({}, item), {}, {
+        isRefined: false
+      });
+    });
+    return {
+      items: props.transformItems ? props.transformItems(items) : items,
+      currentRefinement: currentRefinement
+    };
+  },
+  refine: function refine(props, searchState, nextRefinement) {
+    var id = getId();
+
+    var nextValue = (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_0__["default"])({}, id, nextRefinement);
+
+    var resetPage = true;
+    return (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.refineValue)(searchState, nextValue, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    }, resetPage);
+  },
+  cleanUp: function cleanUp(props, searchState) {
+    return (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.cleanUpValue)(searchState, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    }, getId());
+  },
+  getSearchParameters: function getSearchParameters(searchParameters, props, searchState) {
+    var selectedIndex = getCurrentRefinement(props, searchState, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    });
+    return searchParameters.setIndex(selectedIndex);
+  },
+  getMetadata: function getMetadata() {
+    return {
+      id: getId()
+    };
+  }
+}));
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-core/dist/es/connectors/connectStateResults.js":
+/*!*****************************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-core/dist/es/connectors/connectStateResults.js ***!
+  \*****************************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _core_createConnector_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../core/createConnector.js */ "./node_modules/react-instantsearch-core/dist/es/core/createConnector.js");
+/* harmony import */ var _core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../core/indexUtils.js */ "./node_modules/react-instantsearch-core/dist/es/core/indexUtils.js");
+
+
+/**
+ * The `connectStateResults` connector provides a way to access the `searchState` and the `searchResults`
+ * of InstantSearch.
+ * For instance this connector allows you to create results/noResults or query/noQuery pages.
+ * @name connectStateResults
+ * @kind connector
+ * @providedPropType {object} searchState - The search state of the instant search component. <br/><br/> See: [Search state structure](https://community.algolia.com/react-instantsearch/guide/Search_state.html)
+ * @providedPropType {object} searchResults - The search results. <br/><br/> In case of multiple indices: if used under `<Index>`, results will be those of the corresponding index otherwise it'll be those of the root index  See: [Search results structure](https://community.algolia.com/algoliasearch-helper-js/reference.html#searchresults)
+ * @providedPropType {object} allSearchResults - In case of multiple indices you can retrieve all the results
+ * @providedPropType {string} error - If the search failed, the error will be logged here.
+ * @providedPropType {boolean} searching - If there is a search in progress.
+ * @providedPropType {boolean} isSearchStalled - Flag that indicates if React InstantSearch has detected that searches are stalled.
+ * @providedPropType {boolean} searchingForFacetValues - If there is a search in a list in progress.
+ * @providedPropType {object} props - component props.
+ * @example
+ * import React from 'react';
+ * import algoliasearch from 'algoliasearch/lite';
+ * import { InstantSearch, SearchBox, Hits, connectStateResults } from 'react-instantsearch-dom';
+ *
+ * const searchClient = algoliasearch(
+ *   'latency',
+ *   '6be0576ff61c053d5f9a3225e2a90f76'
+ * );
+ *
+ * const Content = connectStateResults(({ searchState, searchResults }) => {
+ *   const hasResults = searchResults && searchResults.nbHits !== 0;
+ *
+ *    return (
+ *      <div>
+ *        <div hidden={!hasResults}>
+ *          <Hits />
+ *        </div>
+ *        <div hidden={hasResults}>
+ *          <div>No results has been found for {searchState.query}</div>
+ *        </div>
+ *      </div>
+ *    );
+ * });
+ *
+ * const App = () => (
+ *   <InstantSearch
+ *      searchClient={searchClient}
+ *      indexName="instant_search"
+ *    >
+ *      <SearchBox />
+ *      <Content />
+ *    </InstantSearch>
+ * );
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,_core_createConnector_js__WEBPACK_IMPORTED_MODULE_0__["default"])({
+  displayName: 'AlgoliaStateResults',
+  $$type: 'ais.stateResults',
+  getProvidedProps: function getProvidedProps(props, searchState, searchResults) {
+    var results = (0,_core_indexUtils_js__WEBPACK_IMPORTED_MODULE_1__.getResults)(searchResults, {
+      ais: props.contextValue,
+      multiIndexContext: props.indexContextValue
+    });
+    return {
+      searchState: searchState,
+      searchResults: results,
+      allSearchResults: searchResults.results,
+      searching: searchResults.searching,
+      isSearchStalled: searchResults.isSearchStalled,
+      error: searchResults.error,
+      searchingForFacetValues: searchResults.searchingForFacetValues,
+      props: props
     };
   }
 }));
@@ -40294,6 +41071,144 @@ var InstantSearch = /*#__PURE__*/function (_Component) {
 
 /***/ }),
 
+/***/ "./node_modules/react-instantsearch-dom/dist/es/components/Highlight.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-dom/dist/es/components/Highlight.js ***!
+  \******************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _core_utils_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../core/utils.js */ "./node_modules/react-instantsearch-dom/dist/es/core/utils.js");
+/* harmony import */ var _Highlighter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Highlighter.js */ "./node_modules/react-instantsearch-dom/dist/es/components/Highlighter.js");
+
+
+
+
+var cx = (0,_core_utils_js__WEBPACK_IMPORTED_MODULE_2__.createClassNames)('Highlight');
+
+var Highlight = function Highlight(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().createElement(_Highlighter_js__WEBPACK_IMPORTED_MODULE_3__["default"], (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, props, {
+    highlightProperty: "_highlightResult",
+    cx: cx
+  }));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Highlight);
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-dom/dist/es/components/Highlighter.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-dom/dist/es/components/Highlighter.js ***!
+  \********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Highlight": function() { return /* binding */ Highlight; }
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
+var Highlight = function Highlight(_ref) {
+  var cx = _ref.cx,
+      value = _ref.value,
+      highlightedTagName = _ref.highlightedTagName,
+      isHighlighted = _ref.isHighlighted,
+      nonHighlightedTagName = _ref.nonHighlightedTagName;
+  var TagName = isHighlighted ? highlightedTagName : nonHighlightedTagName;
+  var className = isHighlighted ? 'highlighted' : 'nonHighlighted';
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(TagName, {
+    className: cx(className)
+  }, value);
+};
+Highlight.propTypes = {
+  cx: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().func.isRequired),
+  value: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string.isRequired),
+  isHighlighted: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().bool.isRequired),
+  highlightedTagName: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string.isRequired),
+  nonHighlightedTagName: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string.isRequired)
+};
+
+var Highlighter = function Highlighter(_ref2) {
+  var cx = _ref2.cx,
+      hit = _ref2.hit,
+      attribute = _ref2.attribute,
+      highlight = _ref2.highlight,
+      highlightProperty = _ref2.highlightProperty,
+      tagName = _ref2.tagName,
+      nonHighlightedTagName = _ref2.nonHighlightedTagName,
+      separator = _ref2.separator,
+      className = _ref2.className;
+  var parsedHighlightedValue = highlight({
+    hit: hit,
+    attribute: attribute,
+    highlightProperty: highlightProperty
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+    className: classnames__WEBPACK_IMPORTED_MODULE_1___default()(cx(''), className)
+  }, parsedHighlightedValue.map(function (item, i) {
+    if (Array.isArray(item)) {
+      var isLast = i === parsedHighlightedValue.length - 1;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+        key: i
+      }, item.map(function (element, index) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Highlight, {
+          cx: cx,
+          key: index,
+          value: element.value,
+          highlightedTagName: tagName,
+          nonHighlightedTagName: nonHighlightedTagName,
+          isHighlighted: element.isHighlighted
+        });
+      }), !isLast && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("span", {
+        className: cx('separator')
+      }, separator));
+    }
+
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(Highlight, {
+      cx: cx,
+      key: i,
+      value: item.value,
+      highlightedTagName: tagName,
+      nonHighlightedTagName: nonHighlightedTagName,
+      isHighlighted: item.isHighlighted
+    });
+  }));
+};
+
+Highlighter.propTypes = {
+  cx: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().func.isRequired),
+  hit: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().object.isRequired),
+  attribute: prop_types__WEBPACK_IMPORTED_MODULE_2___default().oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_2___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_2___default().string)), (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string)]).isRequired,
+  highlight: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().func.isRequired),
+  highlightProperty: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string.isRequired),
+  tagName: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string),
+  nonHighlightedTagName: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string),
+  separator: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().node)
+};
+Highlighter.defaultProps = {
+  tagName: 'em',
+  nonHighlightedTagName: 'span',
+  className: '',
+  separator: ', '
+};
+/* harmony default export */ __webpack_exports__["default"] = (Highlighter);
+
+/***/ }),
+
 /***/ "./node_modules/react-instantsearch-dom/dist/es/components/Hits.js":
 /*!*************************************************************************!*\
   !*** ./node_modules/react-instantsearch-dom/dist/es/components/Hits.js ***!
@@ -40545,6 +41460,226 @@ var LinkList = /*#__PURE__*/function (_Component) {
 });
 
 
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-dom/dist/es/components/List.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-dom/dist/es/components/List.js ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var _SearchBox_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./SearchBox.js */ "./node_modules/react-instantsearch-dom/dist/es/components/SearchBox.js");
+
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+var itemsPropType = prop_types__WEBPACK_IMPORTED_MODULE_9___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_9___default().shape({
+  value: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().any),
+  label: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().node.isRequired),
+  items: function items() {
+    return itemsPropType.apply(void 0, arguments);
+  }
+}));
+
+var List = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__["default"])(List, _Component);
+
+  var _super = _createSuper(List);
+
+  function List() {
+    var _this;
+
+    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, List);
+
+    _this = _super.call(this);
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "onShowMoreClick", function () {
+      _this.setState(function (state) {
+        return {
+          extended: !state.extended
+        };
+      });
+    });
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "getLimit", function () {
+      var _this$props = _this.props,
+          limit = _this$props.limit,
+          showMoreLimit = _this$props.showMoreLimit;
+      var extended = _this.state.extended;
+      return extended ? showMoreLimit : limit;
+    });
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "resetQuery", function () {
+      _this.setState({
+        query: ''
+      });
+    });
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "renderItem", function (item, resetQuery) {
+      var itemHasChildren = item.items && Boolean(item.items.length);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("li", {
+        key: item.key || item.label,
+        className: _this.props.cx('item', item.isRefined && 'item--selected', item.noRefinement && 'item--noRefinement', itemHasChildren && 'item--parent')
+      }, _this.props.renderItem(item, resetQuery), itemHasChildren && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("ul", {
+        className: _this.props.cx('list', 'list--child')
+      }, item.items.slice(0, _this.getLimit()).map(function (child) {
+        return _this.renderItem(child, item);
+      })));
+    });
+
+    _this.state = {
+      extended: false,
+      query: ''
+    };
+    return _this;
+  }
+
+  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(List, [{
+    key: "renderShowMore",
+    value: function renderShowMore() {
+      var _this$props2 = this.props,
+          showMore = _this$props2.showMore,
+          translate = _this$props2.translate,
+          cx = _this$props2.cx;
+      var extended = this.state.extended;
+      var disabled = this.props.limit >= this.props.items.length;
+
+      if (!showMore) {
+        return null;
+      }
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("button", {
+        disabled: disabled,
+        className: cx('showMore', disabled && 'showMore--disabled'),
+        onClick: this.onShowMoreClick
+      }, translate('showMore', extended));
+    }
+  }, {
+    key: "renderSearchBox",
+    value: function renderSearchBox() {
+      var _this2 = this;
+
+      var _this$props3 = this.props,
+          cx = _this$props3.cx,
+          searchForItems = _this$props3.searchForItems,
+          isFromSearch = _this$props3.isFromSearch,
+          translate = _this$props3.translate,
+          items = _this$props3.items,
+          selectItem = _this$props3.selectItem;
+      var noResults = items.length === 0 && this.state.query !== '' ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("div", {
+        className: cx('noResults')
+      }, translate('noResults')) : null;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("div", {
+        className: cx('searchBox')
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement(_SearchBox_js__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        currentRefinement: this.state.query,
+        refine: function refine(value) {
+          _this2.setState({
+            query: value
+          });
+
+          searchForItems(value);
+        },
+        focusShortcuts: [],
+        translate: translate,
+        onSubmit: function onSubmit(e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          if (isFromSearch && items.length > 0) {
+            selectItem(items[0], _this2.resetQuery);
+          }
+        }
+      }), noResults);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this3 = this;
+
+      var _this$props4 = this.props,
+          cx = _this$props4.cx,
+          items = _this$props4.items,
+          className = _this$props4.className,
+          searchable = _this$props4.searchable,
+          canRefine = _this$props4.canRefine;
+      var searchBox = searchable ? this.renderSearchBox() : null;
+      var rootClassName = classnames__WEBPACK_IMPORTED_MODULE_8___default()(cx('', !canRefine && '-noRefinement'), className);
+
+      if (items.length === 0) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("div", {
+          className: rootClassName
+        }, searchBox);
+      } // Always limit the number of items we show on screen, since the actual
+      // number of retrieved items might vary with the `maxValuesPerFacet` config
+      // option.
+
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("div", {
+        className: rootClassName
+      }, searchBox, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("ul", {
+        className: cx('list', !canRefine && 'list--noRefinement')
+      }, items.slice(0, this.getLimit()).map(function (item) {
+        return _this3.renderItem(item, _this3.resetQuery);
+      })), this.renderShowMore());
+    }
+  }]);
+
+  return List;
+}(react__WEBPACK_IMPORTED_MODULE_7__.Component);
+
+(0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(List, "propTypes", {
+  cx: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().func.isRequired),
+  // Only required with showMore.
+  translate: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().func),
+  items: itemsPropType,
+  renderItem: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().func.isRequired),
+  selectItem: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().func),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().string),
+  showMore: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+  limit: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().number),
+  showMoreLimit: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().number),
+  show: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().func),
+  searchForItems: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().func),
+  searchable: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+  isFromSearch: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool),
+  canRefine: (prop_types__WEBPACK_IMPORTED_MODULE_9___default().bool)
+});
+
+(0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(List, "defaultProps", {
+  className: '',
+  isFromSearch: false
+});
+
+/* harmony default export */ __webpack_exports__["default"] = (List);
 
 /***/ }),
 
@@ -41011,6 +42146,714 @@ PanelWrapper.propTypes = {
 
 /***/ }),
 
+/***/ "./node_modules/react-instantsearch-dom/dist/es/components/RefinementList.js":
+/*!***********************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-dom/dist/es/components/RefinementList.js ***!
+  \***********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var react_instantsearch_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-instantsearch-core */ "./node_modules/react-instantsearch-core/dist/es/core/translatable.js");
+/* harmony import */ var _core_utils_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../core/utils.js */ "./node_modules/react-instantsearch-dom/dist/es/core/utils.js");
+/* harmony import */ var _widgets_Highlight_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../widgets/Highlight.js */ "./node_modules/react-instantsearch-dom/dist/es/widgets/Highlight.js");
+/* harmony import */ var _List_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./List.js */ "./node_modules/react-instantsearch-dom/dist/es/components/List.js");
+
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+
+
+var cx = (0,_core_utils_js__WEBPACK_IMPORTED_MODULE_8__.createClassNames)('RefinementList');
+
+var RefinementList = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__["default"])(RefinementList, _Component);
+
+  var _super = _createSuper(RefinementList);
+
+  function RefinementList() {
+    var _this;
+
+    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, RefinementList);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "state", {
+      query: ''
+    });
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "selectItem", function (item, resetQuery) {
+      resetQuery();
+
+      _this.props.refine(item.value);
+    });
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "renderItem", function (item, resetQuery) {
+      var label = _this.props.isFromSearch ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement(_widgets_Highlight_js__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        attribute: "label",
+        hit: item
+      }) : item.label;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("label", {
+        className: cx('label')
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("input", {
+        className: cx('checkbox'),
+        type: "checkbox",
+        checked: item.isRefined,
+        onChange: function onChange() {
+          return _this.selectItem(item, resetQuery);
+        }
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("span", {
+        className: cx('labelText')
+      }, label), ' ', /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("span", {
+        className: cx('count')
+      }, item.count.toLocaleString()));
+    });
+
+    return _this;
+  }
+
+  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(RefinementList, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          translate = _this$props.translate,
+          items = _this$props.items,
+          showMore = _this$props.showMore,
+          limit = _this$props.limit,
+          showMoreLimit = _this$props.showMoreLimit,
+          isFromSearch = _this$props.isFromSearch,
+          searchForItems = _this$props.searchForItems,
+          searchable = _this$props.searchable,
+          canRefine = _this$props.canRefine,
+          className = _this$props.className;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement(_List_js__WEBPACK_IMPORTED_MODULE_10__["default"], {
+        renderItem: this.renderItem,
+        selectItem: this.selectItem,
+        cx: cx,
+        translate: translate,
+        items: items,
+        showMore: showMore,
+        limit: limit,
+        showMoreLimit: showMoreLimit,
+        isFromSearch: isFromSearch,
+        searchForItems: searchForItems,
+        searchable: searchable,
+        canRefine: canRefine,
+        className: className,
+        query: this.state.query
+      });
+    }
+  }]);
+
+  return RefinementList;
+}(react__WEBPACK_IMPORTED_MODULE_7__.Component);
+
+(0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(RefinementList, "propTypes", {
+  translate: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func.isRequired),
+  refine: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func.isRequired),
+  searchForItems: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func.isRequired),
+  searchable: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+  createURL: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func.isRequired),
+  items: prop_types__WEBPACK_IMPORTED_MODULE_11___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_11___default().shape({
+    label: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().string.isRequired),
+    value: prop_types__WEBPACK_IMPORTED_MODULE_11___default().arrayOf((prop_types__WEBPACK_IMPORTED_MODULE_11___default().string)).isRequired,
+    count: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().number.isRequired),
+    isRefined: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool.isRequired)
+  })),
+  isFromSearch: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool.isRequired),
+  canRefine: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool.isRequired),
+  showMore: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+  limit: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().number),
+  showMoreLimit: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().number),
+  transformItems: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().string)
+});
+
+(0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(RefinementList, "defaultProps", {
+  className: ''
+});
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,react_instantsearch_core__WEBPACK_IMPORTED_MODULE_12__["default"])({
+  showMore: function showMore(extended) {
+    return extended ? 'Show less' : 'Show more';
+  },
+  noResults: 'No results',
+  submit: null,
+  reset: null,
+  resetTitle: 'Clear the search query.',
+  submitTitle: 'Submit your search query.',
+  placeholder: 'Search here…'
+})(RefinementList));
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-dom/dist/es/components/SearchBox.js":
+/*!******************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-dom/dist/es/components/SearchBox.js ***!
+  \******************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/extends */ "./node_modules/@babel/runtime/helpers/esm/extends.js");
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_8__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_9__);
+/* harmony import */ var react_instantsearch_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-instantsearch-core */ "./node_modules/react-instantsearch-core/dist/es/core/translatable.js");
+/* harmony import */ var _core_utils_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../core/utils.js */ "./node_modules/react-instantsearch-dom/dist/es/core/utils.js");
+
+
+
+
+
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_6__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_5__["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+
+var cx = (0,_core_utils_js__WEBPACK_IMPORTED_MODULE_10__.createClassNames)('SearchBox');
+var defaultLoadingIndicator = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("svg", {
+  width: "18",
+  height: "18",
+  viewBox: "0 0 38 38",
+  xmlns: "http://www.w3.org/2000/svg",
+  stroke: "#444",
+  className: cx('loadingIcon')
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("g", {
+  fill: "none",
+  fillRule: "evenodd"
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("g", {
+  transform: "translate(1 1)",
+  strokeWidth: "2"
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("circle", {
+  strokeOpacity: ".5",
+  cx: "18",
+  cy: "18",
+  r: "18"
+}), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("path", {
+  d: "M36 18c0-9.94-8.06-18-18-18"
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("animateTransform", {
+  attributeName: "transform",
+  type: "rotate",
+  from: "0 18 18",
+  to: "360 18 18",
+  dur: "1s",
+  repeatCount: "indefinite"
+})))));
+var defaultReset = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("svg", {
+  className: cx('resetIcon'),
+  xmlns: "http://www.w3.org/2000/svg",
+  viewBox: "0 0 20 20",
+  width: "10",
+  height: "10"
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("path", {
+  d: "M8.114 10L.944 2.83 0 1.885 1.886 0l.943.943L10 8.113l7.17-7.17.944-.943L20 1.886l-.943.943-7.17 7.17 7.17 7.17.943.944L18.114 20l-.943-.943-7.17-7.17-7.17 7.17-.944.943L0 18.114l.943-.943L8.113 10z"
+}));
+var defaultSubmit = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("svg", {
+  className: cx('submitIcon'),
+  xmlns: "http://www.w3.org/2000/svg",
+  width: "10",
+  height: "10",
+  viewBox: "0 0 40 40"
+}, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("path", {
+  d: "M26.804 29.01c-2.832 2.34-6.465 3.746-10.426 3.746C7.333 32.756 0 25.424 0 16.378 0 7.333 7.333 0 16.378 0c9.046 0 16.378 7.333 16.378 16.378 0 3.96-1.406 7.594-3.746 10.426l10.534 10.534c.607.607.61 1.59-.004 2.202-.61.61-1.597.61-2.202.004L26.804 29.01zm-10.426.627c7.323 0 13.26-5.936 13.26-13.26 0-7.32-5.937-13.257-13.26-13.257C9.056 3.12 3.12 9.056 3.12 16.378c0 7.323 5.936 13.26 13.258 13.26z"
+}));
+
+var SearchBox = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(SearchBox, _Component);
+
+  var _super = _createSuper(SearchBox);
+
+  function SearchBox(props) {
+    var _this;
+
+    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, SearchBox);
+
+    _this = _super.call(this);
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "getQuery", function () {
+      return _this.props.searchAsYouType ? _this.props.currentRefinement : _this.state.query;
+    });
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "onInputMount", function (input) {
+      _this.input = input;
+      if (!_this.props.inputRef) return;
+
+      if (typeof _this.props.inputRef === 'function') {
+        _this.props.inputRef(input);
+      } else {
+        _this.props.inputRef.current = input;
+      }
+    });
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "onKeyDown", function (e) {
+      if (!_this.props.focusShortcuts) {
+        return;
+      }
+
+      var shortcuts = _this.props.focusShortcuts.map(function (key) {
+        return typeof key === 'string' ? key.toUpperCase().charCodeAt(0) : key;
+      });
+
+      var elt = e.target || e.srcElement;
+      var tagName = elt.tagName;
+
+      if (elt.isContentEditable || tagName === 'INPUT' || tagName === 'SELECT' || tagName === 'TEXTAREA') {
+        // already in an input
+        return;
+      }
+
+      var which = e.which || e.keyCode;
+
+      if (shortcuts.indexOf(which) === -1) {
+        // not the right shortcut
+        return;
+      }
+
+      _this.input.focus();
+
+      e.stopPropagation();
+      e.preventDefault();
+    });
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "onSubmit", function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      _this.input.blur();
+
+      var _this$props = _this.props,
+          refine = _this$props.refine,
+          searchAsYouType = _this$props.searchAsYouType;
+
+      if (!searchAsYouType) {
+        refine(_this.getQuery());
+      }
+
+      return false;
+    });
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "onChange", function (event) {
+      var _this$props2 = _this.props,
+          searchAsYouType = _this$props2.searchAsYouType,
+          refine = _this$props2.refine,
+          onChange = _this$props2.onChange;
+      var value = event.target.value;
+
+      if (searchAsYouType) {
+        refine(value);
+      } else {
+        _this.setState({
+          query: value
+        });
+      }
+
+      if (onChange) {
+        onChange(event);
+      }
+    });
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_3__["default"])(_this), "onReset", function (event) {
+      var _this$props3 = _this.props,
+          searchAsYouType = _this$props3.searchAsYouType,
+          refine = _this$props3.refine,
+          onReset = _this$props3.onReset;
+      refine('');
+
+      _this.input.focus();
+
+      if (!searchAsYouType) {
+        _this.setState({
+          query: ''
+        });
+      }
+
+      if (onReset) {
+        onReset(event);
+      }
+    });
+
+    _this.state = {
+      query: props.searchAsYouType ? null : props.currentRefinement
+    };
+    return _this;
+  }
+
+  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(SearchBox, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      document.addEventListener('keydown', this.onKeyDown);
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      document.removeEventListener('keydown', this.onKeyDown);
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (!this.props.searchAsYouType && prevProps.currentRefinement !== this.props.currentRefinement) {
+        this.setState({
+          query: this.props.currentRefinement
+        });
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      var _this$props4 = this.props,
+          className = _this$props4.className,
+          inputId = _this$props4.inputId,
+          translate = _this$props4.translate,
+          autoFocus = _this$props4.autoFocus,
+          loadingIndicator = _this$props4.loadingIndicator,
+          submit = _this$props4.submit,
+          reset = _this$props4.reset;
+      var query = this.getQuery();
+      var searchInputEvents = Object.keys(this.props).reduce(function (props, prop) {
+        if (['onsubmit', 'onreset', 'onchange'].indexOf(prop.toLowerCase()) === -1 && prop.indexOf('on') === 0) {
+          return _objectSpread(_objectSpread({}, props), {}, (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])({}, prop, _this2.props[prop]));
+        }
+
+        return props;
+      }, {});
+      var isSearchStalled = this.props.showLoadingIndicator && this.props.isSearchStalled;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("div", {
+        className: classnames__WEBPACK_IMPORTED_MODULE_9___default()(cx(''), className)
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("form", {
+        noValidate: true,
+        onSubmit: this.props.onSubmit ? this.props.onSubmit : this.onSubmit,
+        onReset: this.onReset,
+        className: cx('form', isSearchStalled && 'form--stalledSearch'),
+        action: "",
+        role: "search"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("input", (0,_babel_runtime_helpers_esm_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({
+        ref: this.onInputMount,
+        id: inputId,
+        type: "search",
+        placeholder: translate('placeholder'),
+        autoFocus: autoFocus,
+        autoComplete: "off",
+        autoCorrect: "off",
+        autoCapitalize: "off",
+        spellCheck: "false",
+        required: true,
+        maxLength: "512",
+        value: query,
+        onChange: this.onChange
+      }, searchInputEvents, {
+        className: cx('input')
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("button", {
+        type: "submit",
+        title: translate('submitTitle'),
+        className: cx('submit')
+      }, submit), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("button", {
+        type: "reset",
+        title: translate('resetTitle'),
+        className: cx('reset'),
+        hidden: !query || isSearchStalled
+      }, reset), this.props.showLoadingIndicator && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_8___default().createElement("span", {
+        hidden: !isSearchStalled,
+        className: cx('loadingIndicator')
+      }, loadingIndicator)));
+    }
+  }]);
+
+  return SearchBox;
+}(react__WEBPACK_IMPORTED_MODULE_8__.Component);
+
+(0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(SearchBox, "propTypes", {
+  currentRefinement: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().string),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().string),
+  refine: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func.isRequired),
+  translate: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func.isRequired),
+  loadingIndicator: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().node),
+  reset: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().node),
+  submit: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().node),
+  focusShortcuts: prop_types__WEBPACK_IMPORTED_MODULE_11___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_11___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_11___default().number)])),
+  autoFocus: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+  searchAsYouType: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+  onSubmit: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func),
+  onReset: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func),
+  onChange: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().func),
+  isSearchStalled: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+  showLoadingIndicator: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().bool),
+  inputRef: prop_types__WEBPACK_IMPORTED_MODULE_11___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_11___default().func), prop_types__WEBPACK_IMPORTED_MODULE_11___default().exact({
+    current: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().object)
+  })]),
+  inputId: (prop_types__WEBPACK_IMPORTED_MODULE_11___default().string)
+});
+
+(0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_7__["default"])(SearchBox, "defaultProps", {
+  currentRefinement: '',
+  className: '',
+  focusShortcuts: ['s', '/'],
+  autoFocus: false,
+  searchAsYouType: true,
+  showLoadingIndicator: false,
+  isSearchStalled: false,
+  loadingIndicator: defaultLoadingIndicator,
+  reset: defaultReset,
+  submit: defaultSubmit
+});
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,react_instantsearch_core__WEBPACK_IMPORTED_MODULE_12__["default"])({
+  resetTitle: 'Clear the search query.',
+  submitTitle: 'Submit your search query.',
+  placeholder: 'Search here…'
+})(SearchBox));
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-dom/dist/es/components/Select.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-dom/dist/es/components/Select.js ***!
+  \***************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": function() { return /* binding */ Select; }
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/assertThisInitialized */ "./node_modules/@babel/runtime/helpers/esm/assertThisInitialized.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_8___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_8__);
+
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_4__["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+var Select = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_3__["default"])(Select, _Component);
+
+  var _super = _createSuper(Select);
+
+  function Select() {
+    var _this;
+
+    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, Select);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _super.call.apply(_super, [this].concat(args));
+
+    (0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])((0,_babel_runtime_helpers_esm_assertThisInitialized__WEBPACK_IMPORTED_MODULE_2__["default"])(_this), "onChange", function (e) {
+      _this.props.onSelect(e.target.value);
+    });
+
+    return _this;
+  }
+
+  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Select, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          cx = _this$props.cx,
+          id = _this$props.id,
+          items = _this$props.items,
+          selectedItem = _this$props.selectedItem;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("select", {
+        id: id,
+        className: cx('select'),
+        value: selectedItem,
+        onChange: this.onChange
+      }, items.map(function (item) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_7___default().createElement("option", {
+          className: cx('option'),
+          key: item.key === undefined ? item.value : item.key,
+          disabled: item.disabled,
+          value: item.value
+        }, item.label === undefined ? item.value : item.label);
+      }));
+    }
+  }]);
+
+  return Select;
+}(react__WEBPACK_IMPORTED_MODULE_7__.Component);
+
+(0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_6__["default"])(Select, "propTypes", {
+  cx: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().func.isRequired),
+  id: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().string),
+  onSelect: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().func.isRequired),
+  items: prop_types__WEBPACK_IMPORTED_MODULE_8___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_8___default().shape({
+    value: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_8___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_8___default().number)]).isRequired,
+    key: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_8___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_8___default().number)]),
+    label: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().string),
+    disabled: (prop_types__WEBPACK_IMPORTED_MODULE_8___default().bool)
+  })).isRequired,
+  selectedItem: prop_types__WEBPACK_IMPORTED_MODULE_8___default().oneOfType([(prop_types__WEBPACK_IMPORTED_MODULE_8___default().string), (prop_types__WEBPACK_IMPORTED_MODULE_8___default().number)]).isRequired
+});
+
+
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-dom/dist/es/components/SortBy.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-dom/dist/es/components/SortBy.js ***!
+  \***************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/esm/classCallCheck */ "./node_modules/@babel/runtime/helpers/esm/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/esm/createClass */ "./node_modules/@babel/runtime/helpers/esm/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/esm/inherits */ "./node_modules/@babel/runtime/helpers/esm/inherits.js");
+/* harmony import */ var _babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/esm/possibleConstructorReturn */ "./node_modules/@babel/runtime/helpers/esm/possibleConstructorReturn.js");
+/* harmony import */ var _babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/esm/getPrototypeOf */ "./node_modules/@babel/runtime/helpers/esm/getPrototypeOf.js");
+/* harmony import */ var _babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/esm/defineProperty */ "./node_modules/@babel/runtime/helpers/esm/defineProperty.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+/* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_10__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! classnames */ "./node_modules/classnames/index.js");
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _core_utils_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../core/utils.js */ "./node_modules/react-instantsearch-dom/dist/es/core/utils.js");
+/* harmony import */ var _Select_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Select.js */ "./node_modules/react-instantsearch-dom/dist/es/components/Select.js");
+
+
+
+
+
+
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = (0,_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = (0,_babel_runtime_helpers_esm_getPrototypeOf__WEBPACK_IMPORTED_MODULE_4__["default"])(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return (0,_babel_runtime_helpers_esm_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3__["default"])(this, result); }; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+
+
+
+
+
+var cx = (0,_core_utils_js__WEBPACK_IMPORTED_MODULE_8__.createClassNames)('SortBy');
+
+var SortBy = /*#__PURE__*/function (_Component) {
+  (0,_babel_runtime_helpers_esm_inherits__WEBPACK_IMPORTED_MODULE_2__["default"])(SortBy, _Component);
+
+  var _super = _createSuper(SortBy);
+
+  function SortBy() {
+    (0,_babel_runtime_helpers_esm_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, SortBy);
+
+    return _super.apply(this, arguments);
+  }
+
+  (0,_babel_runtime_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(SortBy, [{
+    key: "render",
+    value: function render() {
+      var _this$props = this.props,
+          id = _this$props.id,
+          items = _this$props.items,
+          currentRefinement = _this$props.currentRefinement,
+          refine = _this$props.refine,
+          className = _this$props.className;
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement("div", {
+        className: classnames__WEBPACK_IMPORTED_MODULE_7___default()(cx(''), className)
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_6___default().createElement(_Select_js__WEBPACK_IMPORTED_MODULE_9__["default"], {
+        id: id,
+        cx: cx,
+        items: items,
+        selectedItem: currentRefinement,
+        onSelect: refine
+      }));
+    }
+  }]);
+
+  return SortBy;
+}(react__WEBPACK_IMPORTED_MODULE_6__.Component);
+
+(0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])(SortBy, "propTypes", {
+  id: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string),
+  items: prop_types__WEBPACK_IMPORTED_MODULE_10___default().arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_10___default().shape({
+    label: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string),
+    value: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string.isRequired)
+  })).isRequired,
+  currentRefinement: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string.isRequired),
+  refine: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().func.isRequired),
+  className: (prop_types__WEBPACK_IMPORTED_MODULE_10___default().string)
+});
+
+(0,_babel_runtime_helpers_esm_defineProperty__WEBPACK_IMPORTED_MODULE_5__["default"])(SortBy, "defaultProps", {
+  className: ''
+});
+
+/* harmony default export */ __webpack_exports__["default"] = (SortBy);
+
+/***/ }),
+
 /***/ "./node_modules/react-instantsearch-dom/dist/es/components/Stats.js":
 /*!**************************************************************************!*\
   !*** ./node_modules/react-instantsearch-dom/dist/es/components/Stats.js ***!
@@ -41143,6 +42986,65 @@ function find(array, comparator) {
 
 /***/ }),
 
+/***/ "./node_modules/react-instantsearch-dom/dist/es/widgets/Highlight.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-dom/dist/es/widgets/Highlight.js ***!
+  \***************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_instantsearch_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-instantsearch-core */ "./node_modules/react-instantsearch-core/dist/es/connectors/connectHighlight.js");
+/* harmony import */ var _components_Highlight_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Highlight.js */ "./node_modules/react-instantsearch-dom/dist/es/components/Highlight.js");
+
+
+/**
+ * Renders any attribute from a hit into its highlighted form when relevant.
+ *
+ * Read more about it in the [Highlighting results](guide/Highlighting_results.html) guide.
+ * @name Highlight
+ * @kind widget
+ * @propType {string} attribute - location of the highlighted attribute in the hit (the corresponding element can be either a string or an array of strings)
+ * @propType {object} hit - hit object containing the highlighted attribute
+ * @propType {string} [tagName='em'] - tag to be used for highlighted parts of the hit
+ * @propType {string} [nonHighlightedTagName='span'] - tag to be used for the parts of the hit that are not highlighted
+ * @propType {node} [separator=',<space>'] - symbol used to separate the elements of the array in case the attribute points to an array of strings.
+ * @themeKey ais-Highlight - root of the component
+ * @themeKey ais-Highlight-highlighted - part of the text which is highlighted
+ * @themeKey ais-Highlight-nonHighlighted - part of the text that is not highlighted
+ * @example
+ * import React from 'react';
+ * import algoliasearch from 'algoliasearch/lite';
+ * import { InstantSearch, SearchBox, Hits, Highlight } from 'react-instantsearch-dom';
+ *
+ * const Hit = ({ hit }) => (
+ *   <div>
+ *     <Highlight attribute="name" hit={hit} />
+ *   </div>
+ * );
+ *
+ * const searchClient = algoliasearch(
+ *   'latency',
+ *   '6be0576ff61c053d5f9a3225e2a90f76'
+ * );
+ *
+ * const App = () => (
+ *   <InstantSearch
+ *     searchClient={searchClient}
+ *     indexName="instant_search"
+ *   >
+ *     <SearchBox defaultRefinement="Pho" />
+ *     <Hits hitComponent={Hit} />
+ *   </InstantSearch>
+ * );
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,react_instantsearch_core__WEBPACK_IMPORTED_MODULE_0__["default"])(_components_Highlight_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  $$widgetType: 'ais.highlight'
+}));
+
+/***/ }),
+
 /***/ "./node_modules/react-instantsearch-dom/dist/es/widgets/Hits.js":
 /*!**********************************************************************!*\
   !*** ./node_modules/react-instantsearch-dom/dist/es/widgets/Hits.js ***!
@@ -41271,6 +43173,209 @@ var PaginationWidget = function PaginationWidget(props) {
 
 /* harmony default export */ __webpack_exports__["default"] = ((0,react_instantsearch_core__WEBPACK_IMPORTED_MODULE_3__["default"])(PaginationWidget, {
   $$widgetType: 'ais.pagination'
+}));
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-dom/dist/es/widgets/RefinementList.js":
+/*!********************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-dom/dist/es/widgets/RefinementList.js ***!
+  \********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_instantsearch_core__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-instantsearch-core */ "./node_modules/react-instantsearch-core/dist/es/connectors/connectRefinementList.js");
+/* harmony import */ var _components_PanelCallbackHandler_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/PanelCallbackHandler.js */ "./node_modules/react-instantsearch-dom/dist/es/components/PanelCallbackHandler.js");
+/* harmony import */ var _components_RefinementList_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/RefinementList.js */ "./node_modules/react-instantsearch-dom/dist/es/components/RefinementList.js");
+
+
+
+
+/**
+ * The RefinementList component displays a list that let the end user choose multiple values for a specific facet.
+ * @name RefinementList
+ * @kind widget
+ * @propType {string} attribute - the name of the attribute in the record
+ * @propType {boolean} [searchable=false] - true if the component should display an input to search for facet values. <br> In order to make this feature work, you need to make the attribute searchable [using the API](https://www.algolia.com/doc/guides/searching/faceting/?language=js#declaring-a-searchable-attribute-for-faceting) or [the dashboard](https://www.algolia.com/explorer/display/).
+ * @propType {string} [operator=or] - How to apply the refinements. Possible values: 'or' or 'and'.
+ * @propType {boolean} [showMore=false] - true if the component should display a button that will expand the number of items
+ * @propType {number} [limit=10] - the minimum number of displayed items
+ * @propType {number} [showMoreLimit=20] - the maximum number of displayed items. Only used when showMore is set to `true`
+ * @propType {string[]} [defaultRefinement] - the values of the items selected by default
+ * @propType {function} [transformItems] - Function to modify the items being displayed, e.g. for filtering or sorting them. Takes an items as parameter and expects it back in return.
+ * @themeKey ais-RefinementList - the root div of the widget
+ * @themeKey ais-RefinementList--noRefinement - the root div of the widget when there is no refinement
+ * @themeKey ais-RefinementList-searchBox - the search box of the widget. See [the SearchBox documentation](widgets/SearchBox.html#classnames) for the classnames and translation keys of the SearchBox.
+ * @themeKey ais-RefinementList-list - the list of refinement items
+ * @themeKey ais-RefinementList-item - the refinement list item
+ * @themeKey ais-RefinementList-item--selected - the refinement selected list item
+ * @themeKey ais-RefinementList-label - the label of each refinement item
+ * @themeKey ais-RefinementList-checkbox - the checkbox input of each refinement item
+ * @themeKey ais-RefinementList-labelText - the label text of each refinement item
+ * @themeKey ais-RefinementList-count - the count of values for each item
+ * @themeKey ais-RefinementList-noResults - the div displayed when there are no results
+ * @themeKey ais-RefinementList-showMore - the button used to display more categories
+ * @themeKey ais-RefinementList-showMore--disabled - the disabled button used to display more categories
+ * @translationkey showMore - The label of the show more button. Accepts one parameters, a boolean that is true if the values are expanded
+ * @translationkey noResults - The label of the no results text when no search for facet values results are found.
+ * @requirements The attribute passed to the `attribute` prop must be present in "attributes for faceting"
+ * on the Algolia dashboard or configured as `attributesForFaceting` via a set settings call to the Algolia API.
+ *
+ * If you are using the `searchable` prop, you'll also need to make the attribute searchable using
+ * the [dashboard](https://www.algolia.com/explorer/display/) or using the [API](https://www.algolia.com/doc/guides/searching/faceting/#search-for-facet-values).
+ * @example
+ * import React from 'react';
+ * import algoliasearch from 'algoliasearch/lite';
+ * import { InstantSearch, RefinementList } from 'react-instantsearch-dom';
+ *
+ * const searchClient = algoliasearch(
+ *   'latency',
+ *   '6be0576ff61c053d5f9a3225e2a90f76'
+ * );
+ *
+ * const App = () => (
+ *   <InstantSearch
+ *     searchClient={searchClient}
+ *     indexName="instant_search"
+ *   >
+ *     <RefinementList attribute="brand" />
+ *   </InstantSearch>
+ * );
+ */
+
+var RefinementListWidget = function RefinementListWidget(props) {
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_PanelCallbackHandler_js__WEBPACK_IMPORTED_MODULE_1__["default"], props, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_components_RefinementList_js__WEBPACK_IMPORTED_MODULE_2__["default"], props));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,react_instantsearch_core__WEBPACK_IMPORTED_MODULE_3__["default"])(RefinementListWidget, {
+  $$widgetType: 'ais.refinementList'
+}));
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-dom/dist/es/widgets/SearchBox.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-dom/dist/es/widgets/SearchBox.js ***!
+  \***************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_instantsearch_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-instantsearch-core */ "./node_modules/react-instantsearch-core/dist/es/connectors/connectSearchBox.js");
+/* harmony import */ var _components_SearchBox_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/SearchBox.js */ "./node_modules/react-instantsearch-dom/dist/es/components/SearchBox.js");
+
+
+/**
+ * The SearchBox component displays a search box that lets the user search for a specific query.
+ * @name SearchBox
+ * @kind widget
+ * @propType {string[]} [focusShortcuts=['s','/']] - List of keyboard shortcuts that focus the search box. Accepts key names and key codes.
+ * @propType {boolean} [autoFocus=false] - Should the search box be focused on render?
+ * @propType {boolean} [searchAsYouType=true] - Should we search on every change to the query? If you disable this option, new searches will only be triggered by clicking the search button or by pressing the enter key while the search box is focused.
+ * @propType {function} [onSubmit] - Intercept submit event sent from the SearchBox form container.
+ * @propType {function} [onReset] - Listen to `reset` event sent from the SearchBox form container.
+ * @propType {function} [on*] - Listen to any events sent from the search input itself.
+ * @propType {node} [submit] - Change the apparence of the default submit button (magnifying glass).
+ * @propType {node} [reset] - Change the apparence of the default reset button (cross).
+ * @propType {node} [loadingIndicator] - Change the apparence of the default loading indicator (spinning circle).
+ * @propType {string} [defaultRefinement] - Provide default refinement value when component is mounted.
+ * @propType {string} [inputId] - The id of the search input
+ * @propType {boolean} [showLoadingIndicator=false] - Display that the search is loading. This only happens after a certain amount of time to avoid a blinking effect. This timer can be configured with `stalledSearchDelay` props on <InstantSearch>. By default, the value is 200ms.
+ * @themeKey ais-SearchBox - the root div of the widget
+ * @themeKey ais-SearchBox-form - the wrapping form
+ * @themeKey ais-SearchBox-input - the search input
+ * @themeKey ais-SearchBox-submit - the submit button
+ * @themeKey ais-SearchBox-submitIcon - the default magnifier icon used with the search input
+ * @themeKey ais-SearchBox-reset - the reset button used to clear the content of the input
+ * @themeKey ais-SearchBox-resetIcon - the default reset icon used inside the reset button
+ * @themeKey ais-SearchBox-loadingIndicator - the loading indicator container
+ * @themeKey ais-SearchBox-loadingIcon - the default loading icon
+ * @translationkey submitTitle - The submit button title
+ * @translationkey resetTitle - The reset button title
+ * @translationkey placeholder - The label of the input placeholder
+ * @example
+ * import React from 'react';
+ * import algoliasearch from 'algoliasearch/lite';
+ * import { InstantSearch, SearchBox } from 'react-instantsearch-dom';
+ *
+ * const searchClient = algoliasearch(
+ *   'latency',
+ *   '6be0576ff61c053d5f9a3225e2a90f76'
+ * );
+ *
+ * const App = () => (
+ *   <InstantSearch
+ *     searchClient={searchClient}
+ *     indexName="instant_search"
+ *   >
+ *     <SearchBox />
+ *   </InstantSearch>
+ * );
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,react_instantsearch_core__WEBPACK_IMPORTED_MODULE_0__["default"])(_components_SearchBox_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  $$widgetType: 'ais.searchBox'
+}));
+
+/***/ }),
+
+/***/ "./node_modules/react-instantsearch-dom/dist/es/widgets/SortBy.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/react-instantsearch-dom/dist/es/widgets/SortBy.js ***!
+  \************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react_instantsearch_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-instantsearch-core */ "./node_modules/react-instantsearch-core/dist/es/connectors/connectSortBy.js");
+/* harmony import */ var _components_SortBy_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/SortBy.js */ "./node_modules/react-instantsearch-dom/dist/es/components/SortBy.js");
+
+
+/**
+ * The SortBy component displays a list of indexes allowing a user to change the hits are sorting.
+ * @name SortBy
+ * @requirements Algolia handles sorting by creating replica indices. [Read more about sorting](https://www.algolia.com/doc/guides/relevance/sorting/) on
+ * the Algolia website.
+ * @kind widget
+ * @propType {string} id - The id of the select input
+ * @propType {{value: string, label: string}[]} items - The list of indexes to search in.
+ * @propType {string} defaultRefinement - The default selected index.
+ * @propType {function} [transformItems] - Function to modify the items being displayed, e.g. for filtering or sorting them. Takes an items as parameter and expects it back in return.
+ * @themeKey ais-SortBy - the root div of the widget
+ * @themeKey ais-SortBy-select - the select
+ * @themeKey ais-SortBy-option - the select option
+ * @example
+ * import React from 'react';
+ * import algoliasearch from 'algoliasearch/lite';
+ * import { InstantSearch, SortBy } from 'react-instantsearch-dom';
+ *
+ * const searchClient = algoliasearch(
+ *   'latency',
+ *   '6be0576ff61c053d5f9a3225e2a90f76'
+ * );
+ *
+ * const App = () => (
+ *   <InstantSearch
+ *     searchClient={searchClient}
+ *     indexName="instant_search"
+ *   >
+ *     <SortBy
+ *       defaultRefinement="instant_search"
+ *       items={[
+ *         { value: 'instant_search', label: 'Featured' },
+ *         { value: 'instant_search_price_asc', label: 'Price asc.' },
+ *         { value: 'instant_search_price_desc', label: 'Price desc.' },
+ *       ]}
+ *     />
+ *   </InstantSearch>
+ * );
+ */
+
+/* harmony default export */ __webpack_exports__["default"] = ((0,react_instantsearch_core__WEBPACK_IMPORTED_MODULE_0__["default"])(_components_SortBy_js__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  $$widgetType: 'ais.sortBy'
 }));
 
 /***/ }),
