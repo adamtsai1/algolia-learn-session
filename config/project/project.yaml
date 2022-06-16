@@ -1,4 +1,4 @@
-dateModified: 1655300482
+dateModified: 1655390778
 email:
   fromEmail: adam.tsai@fostermade.co
   fromName: 'Algolia Demo'
@@ -25,8 +25,9 @@ system:
   edition: solo
   live: true
   name: 'Algolia Demo'
+  retryDuration: null
   schemaVersion: 3.7.33
-  timeZone: America/Los_Angeles
+  timeZone: America/Jamaica
 users:
   allowPublicRegistration: false
   defaultGroup: null

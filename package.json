@@ -1,12 +1,56 @@
 {
-  "name": "algolia-demo",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "scout-refresh": "./craft scout/index/refresh",
-    "scout-settings": "./craft scout/settings/update"
-  },
-  "author": "",
-  "license": "ISC"
+    "name": "algolia-demo",
+    "version": "1.0.0",
+    "description": "",
+    "author": "",
+    "license": "ISC",
+    "scripts": {
+        "development": "mix",
+        "w": "npm run watch",
+        "watch": "NODE_OPTIONS=\"--max-old-space-size=8000\" npx mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "production": "mix --production",
+        "modernizr": "modernizr -c resources/js/lib/modernizr-config.json -d resources/js/lib/ -u"
+    },
+    "dependencies": {
+        "@babel/polyfill": "^7.4.4",
+        "@babel/preset-react": "^7.17.12",
+        "algoliasearch": "^4.13.1",
+        "core-js": "^2.6.12",
+        "cross-env": "^5.2.0",
+        "jquery": "^3.5.1",
+        "laravel-mix": "^6.0.19",
+        "normalize.css": "^8.0.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-instantsearch-dom": "^6.28.0",
+        "sass": "^1.22.9"
+    },
+    "devDependencies": {
+        "babel-eslint": "^10.0.3",
+        "browser-sync": "^2.26.14",
+        "browser-sync-webpack-plugin": "^2.3.0",
+        "dotenv": "^16.0.1",
+        "dotenv-webpack": "^7.1.0",
+        "eslint": "^6.3.0",
+        "eslint-config-airbnb": "^18.0.1",
+        "eslint-config-airbnb-base": "^14.0.0",
+        "eslint-config-fostermade": "0.0.19-alpha.6",
+        "eslint-config-prettier": "^6.2.0",
+        "eslint-plugin-compat": "^3.3.0",
+        "eslint-plugin-html": "^6.0.0",
+        "eslint-plugin-import": "^2.18.2",
+        "eslint-plugin-jsx-a11y": "^6.2.3",
+        "eslint-plugin-prettier": "^3.1.0",
+        "eslint-plugin-react": "^7.14.3",
+        "eslint-plugin-react-hooks": "^2.0.1",
+        "postcss": "^8.3.0",
+        "prettier": "^1.18.2",
+        "resolve-url-loader": "^3.1.2",
+        "sass-loader": "^7.1.0"
+    },
+    "browserslist": [
+        "last 1 version",
+        "> 1%"
+    ]
 }

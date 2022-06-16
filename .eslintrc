@@ -1,0 +1,14 @@
+{
+    "extends": ["fostermade"],
+    "rules": {
+        "arrow-body-style": 0,
+        "import/order": 0,
+        "jsx-a11y/anchor-has-content": 0,
+        "jsx-a11y/anchor-is-valid": 0,
+        "no-unreachable": 0,
+        "no-unused-expressions": 0,
+        "no-use-before-define": 0,
+        "react/jsx-props-no-spreading": 0,
+        "react/no-danger": 0
+    }
+}
